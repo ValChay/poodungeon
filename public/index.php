@@ -7,7 +7,7 @@ $dungeon = new POE\Dungeon();
 /* On décide de définir dans un tableau associatif la liste des pages gérés par l'application
 la clé représente le chemin d'url et la valeur est le nomo de la méthode à éxécuter*/
 $pages = [
-    '/creation' => 'creation',
+    '/creation' => 'createCharacter',
     '/jeu/situation' => 'reportSituation',
 ];
 
@@ -19,20 +19,19 @@ if (!key_exists($_SERVER['REQUEST_URI'], $pages)) {
 }
 
 /* Si lurl existe bien on peut appeler la méthode correspondante comme
-le nom de la méthode est stockée dans une variable
-on passe par call user pour lappeler*/
+le nom de la méthode est stockée dans une variable on passe par call user pour lappeler*/
 $document = call_user_func([$dungeon, $pages[$_SERVER['REQUEST_URI']]]);
 
-$_SERVER['REQUEST_URI'];
+
 
 /* L'nevoi du document se fait à la fin
-
 il n'y a plus de traitement à faire, donc plus derreur possible
 */
 echo $document;
 
 ?>
-<a href="../template/createCharacter.html.php"> Créer votre personnage</a>
-<a href="../template/reportSituation.html.php"> Situation du donjon</a>
+
+<a href="/creation"> Créer votre personnage</a>
+<a href="/jeu/situation"> Situation du donjon</a>
 
 
