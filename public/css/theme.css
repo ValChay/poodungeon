@@ -1,0 +1,20 @@
+
+#energy progress::-webkit-progress-value {
+    background-color: #3b79ff;
+}
+#energy progress::-moz-progress-bar {
+    background-color: #0eceff;
+}
+
+#pdv progress::-webkit-progress-value {
+    background-color: #ff6039;
+}
+#pdv progress::-moz-progress-bar {
+    background-color: #ff8053;
+}
+
+.formulaire {
+
+    display: flex;
+    flex-direction: column;
+}
