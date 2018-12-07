@@ -3,19 +3,8 @@
 
 namespace POE\database;
 
-class CharacterLoader
+class CharacterLoader extends Connection
 {
-
-    /**
-     * CharacterLoader constructor.
-     * il faut un param connection pour instancié un characterLoader
-     */
-    public function __construct($connection)
-    {
-
-        $this->connection = $connection->getConnection();
-
-    }
 
     public function load(int $id): Character
     {

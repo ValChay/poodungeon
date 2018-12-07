@@ -124,6 +124,15 @@ class Character{
         $this->defense = $defense;
     }
 
+    public function wound(int $amount)
+    {
+        $this->life_current -= $amount;
+        if(0 > $this->life_current){
+            echo $this->getName().' est mort !!';
+            throw  new \Exception("aaalkkldkdkldklmdlm");
+
+        }
+    }
 
 
 }

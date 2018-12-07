@@ -8,6 +8,7 @@ $dungeon = new POE\Dungeon();
 la clé représente le chemin d'url et la valeur est le nomo de la méthode à éxécuter*/
 $pages = [
     '/creation' => 'createCharacter',
+    '/jeu/baston' =>'brawl',
     '/jeu/situation' => 'reportSituation',
 ];
 
@@ -26,11 +27,13 @@ $document = call_user_func([$dungeon, $pages[$_SERVER['REQUEST_URI']]]);
 /* L'nevoi du document se fait à la fin
 il n'y a plus de traitement à faire, donc plus derreur possible
 */
+
 echo $document;
 
 ?>
 
 <a href="/creation"> Créer votre personnage</a>
 <a href="/jeu/situation"> Situation du donjon</a>
+<a href="/jeu/baston"> Baston</a>
 
 
