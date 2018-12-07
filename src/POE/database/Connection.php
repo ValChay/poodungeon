@@ -16,6 +16,7 @@ class Connection
     public function __construct()
     {
         $this->connexion = new \PDO('mysql:dbname=dungeon;host=localhost', 'root', 'root');
+        $this->connexion->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
     }
 
     public function getConnection(): \PDO{

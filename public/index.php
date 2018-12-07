@@ -23,7 +23,6 @@ le nom de la méthode est stockée dans une variable on passe par call user pour
 $document = call_user_func([$dungeon, $pages[$_SERVER['REQUEST_URI']]]);
 
 
-
 /* L'nevoi du document se fait à la fin
 il n'y a plus de traitement à faire, donc plus derreur possible
 */
