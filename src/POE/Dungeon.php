@@ -16,7 +16,7 @@ class Dungeon
         $loader = new CharacterLoader(new Connection());
 
         $attacker = $loader->load(1);
-        $defender = $loader->load(29);
+        $defender = $loader->load(2);
 
         $ring = new Ring($attacker, $defender);
         // toute les variables local à la méthode sont disponible dans le template
@@ -38,12 +38,14 @@ class Dungeon
             /*On délégue à notre fabrique de personnage tout le savoir faire pour créer un nouveau personnage
             à partir d'un type et d'un nom */
             $factory = new CharacterFactory();
-            $character = $factory->generate($_POST['name'], $_POST['type']);
+            $characters = $factory->generate($_POST['name'], $_POST['type']);
+            // On va aller chercher la constante pour la liste des type
+            $lists = CharacterFactory::TYPES['name'];
 
             $manager = new CharacterManager(new Connection());
-            $manager->save($character);
+            $manager->save($characters);
         }
-        return $this->render('createCharacter');
+        return $this->render('createCharacter', ['lists' => $lists]);
     }
 
     public function reportSituation()

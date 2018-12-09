@@ -12,36 +12,33 @@ namespace POE\database;
 class CharacterFactory
 {
     const TYPES = [
-        'warrior' => [
-            'life' => 200,
-            'energy' => 100,
-            'attack' => 25,
-            'defense' => 25
-        ],
-        'thief' => [
-            'life' => 100,
-            'energy' => 100,
-            'attack' => 20,
-            'defense' => 23
-        ],
-        'wizard' => [
-            'life' => 100,
-            'energy' => 100,
-            'attack' => 15,
-            'defense' => 10
-        ]
-    ];
+        'name' => [
+            'warrior' => [
+                'life' => 200,
+                'energy' => 100,
+                'attack' => 25,
+                'defense' => 25
+            ],
 
-    private $connection;
-
-    /**
-     * CharacterFactory constructor.
-     * @param $connection
-     */
-   /* public function __construct($connection)
-    {
-        $this->connection = $connection->getConnection();
-    }*/
+            'thief' => [
+                'life' => 100,
+                'energy' => 100,
+                'attack' => 20,
+                'defense' => 23
+            ],
+            'wizard' => [
+                'life' => 100,
+                'energy' => 100,
+                'attack' => 15,
+                'defense' => 10
+            ],
+            'goule' => [
+                'life' => 45,
+                'energy' => 30,
+                'attack' => 20,
+                'defense' => 5
+            ]
+        ]];
 
 
     /**
@@ -58,8 +55,8 @@ class CharacterFactory
         $character = new Character();
         $character->SetName($name);
         // pas de else quand il y un terme qui tue l'instruction
-        if (!key_exists($type,self::TYPES)){
-            throw new \Exception('Type of character'.$type.'does not exist');
+        if (!key_exists($type, self::TYPES)) {
+            throw new \Exception('Type of character' . $type . 'does not exist');
         }
         $character->setLifeMax(self::TYPES[$type]['life']);
         $character->setLifeCurrent(self::TYPES[$type]['life']);

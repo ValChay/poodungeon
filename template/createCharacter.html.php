@@ -11,32 +11,26 @@
 <body>
 <div class="formulaire">
     <form action="" method="post">
-    <div>
+        <div>
             <label for="name">Name :</label>
             <input type="text" name="name" id="name" value="">
-    </div>
-    <div>
-        <label for="personnage-type">Classe</label>
-        <select name="type" id="personnage-type" required>
-            <option value="" selected></option>
-            <option value="warrior" >warrior</option>
-            <option value="thief" >thief</option>
-            <option value="wizard" >wizard</option>
-        </select>
-    </div><br>
+        </div>
+        <div>
+            <?php var_dump($lists) ?>
+            <label for="personnage-type">Classe</label>
 
-<!--        <label for="life_max">Life max : </label>
-        <input type="text" id="life_max" value="">
+            <select name="type" id="personnage-type" required>
+                <?php foreach ($lists as $list) ?>
+                <option value="" selected></option>
+                <option value="<?= $list ?>"></option>
 
-        <label for="life_current">Lifeeeee current :</label>
-        <input type="text" id="life_current" value="">
+                <!--     <option value="warrior" >warrior</option>
+                     <option value="thief" >thief</option>
+                     <option value="wizard" >wizard</option>-->
+            </select>
 
-        <label for="energy_max">Energy max : </label>
-        <input type="text" id="energy_max" value="">
-
-        <label for="energy_current">Energy current :</label>
-        <input type="text" id="energy_current" value="">-->
-
+        </div>
+        <br>
         <button>Créer</button>
 
     </form>

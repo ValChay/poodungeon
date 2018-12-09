@@ -5,17 +5,19 @@ require __DIR__ . '/../src/autoload.php';
 $dungeon = new POE\Dungeon();
 
 /* On décide de définir dans un tableau associatif la liste des pages gérés par l'application
-la clé représente le chemin d'url et la valeur est le nomo de la méthode à éxécuter*/
+la clé représente le chemin d'url et la valeur est le nom de la méthode à éxécuter*/
 $pages = [
     '/creation' => 'createCharacter',
-    '/jeu/baston' =>'brawl',
+    '/jeu/baston' => 'brawl',
     '/jeu/situation' => 'reportSituation',
 ];
 
 /*Si lurl demander par le client n'est pas dans la liste on lui affiche un 404*/
 if (!key_exists($_SERVER['REQUEST_URI'], $pages)) {
     http_response_code(404);
-    echo '<h1>404</h1>';
+    echo '<a href="/creation"> Créer votre personnage</a>
+          <a href="/jeu/situation"> Situation du donjon</a>
+          <a href="/jeu/baston"> Fight</a>';
     die;
 }
 
@@ -32,8 +34,6 @@ echo $document;
 
 ?>
 
-<a href="/creation"> Créer votre personnage</a>
-<a href="/jeu/situation"> Situation du donjon</a>
-<a href="/jeu/baston"> Baston</a>
+
 
 
