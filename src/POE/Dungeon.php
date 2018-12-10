@@ -40,7 +40,7 @@ class Dungeon
             $factory = new CharacterFactory();
             $characters = $factory->generate($_POST['name'], $_POST['type']);
             // On va aller chercher la constante pour la liste des type
-            $lists = CharacterFactory::TYPES['name'];
+            $lists = CharacterFactory::TYPES;
 
             $manager = new CharacterManager(new Connection());
             $manager->save($characters);
@@ -68,13 +68,14 @@ class Dungeon
 
     private function render(string $filename, array $data = [])
     {
-       /* a partir du tableau ssociatif $data reçu en paramètre
+       /* a partir du tableau associatif $data reçu en paramètre
        on génère autant de variable qu'il ya d'element dans le tableau
        chaque variable portera le nom de la clé*/
         extract($data);
         /*
          * Démarrage tampon de sortie
-         * Dans cette 'zone" tampon, le html généré par le fichier inclus sera stocké sans partir directement vers le serveur HTTP
+         * Dans cette 'zone" tampon, le html généré par le fichier inclus sera
+         *  stocké sans partir directement vers le serveur HTTP
          * */
 
         ob_start();

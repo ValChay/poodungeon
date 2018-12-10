@@ -4,6 +4,7 @@ namespace POE\brawl;
 
 
 use POE\database\Character;
+use POE\database\ObjetIterable;
 
 class Ring
 {
@@ -39,8 +40,8 @@ class Ring
                 $report[]= $this->defender->getName() . ' frappe ' . $this->attacker->getName();
             }
         } catch (\Exception $exception) {
-
+            return new ObjetIterable($report);
         }
-        return $report;
+        /*return $it;*/
     }
 }

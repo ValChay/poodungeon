@@ -9,6 +9,7 @@
     <title>Document</title>
 </head>
 <body>
+
 <div class="formulaire">
     <form action="" method="post">
         <div>
@@ -16,20 +17,23 @@
             <input type="text" name="name" id="name" value="">
         </div>
         <div>
-            <?php var_dump($lists) ?>
+            <?php var_dump($lists) ;?>
             <label for="personnage-type">Classe</label>
 
             <select name="type" id="personnage-type" required>
-                <?php foreach ($lists as $list) ?>
-                <option value="" selected></option>
-                <option value="<?= $list ?>"></option>
+                <option value="Choix" selected>Choix</option>
+                <?php foreach ($lists as $list => $listValue): ?>
+                <option value="<?php echo $listValue;?>"><?php echo $list;?></option>
 
                 <!--     <option value="warrior" >warrior</option>
                      <option value="thief" >thief</option>
                      <option value="wizard" >wizard</option>-->
+                <?php endforeach; ?>
             </select>
 
         </div>
+
+
         <br>
         <button>Créer</button>
 

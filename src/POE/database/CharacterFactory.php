@@ -12,7 +12,6 @@ namespace POE\database;
 class CharacterFactory
 {
     const TYPES = [
-        'name' => [
             'warrior' => [
                 'life' => 200,
                 'energy' => 100,
@@ -38,7 +37,7 @@ class CharacterFactory
                 'attack' => 20,
                 'defense' => 5
             ]
-        ]];
+        ];
 
 
     /**
