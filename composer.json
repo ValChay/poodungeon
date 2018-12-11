@@ -1,0 +1,13 @@
+{
+    "name": "poe/dungeon",
+    "description": "Jeux de ouf",
+    "type": "project",
+    "license": "Beerware",
+    "authors": [
+        {
+            "name": "Valentin Chaillon",
+            "email": "valentin.chaillon@gmail.com"
+        }
+    ],
+    "require": {}
+}

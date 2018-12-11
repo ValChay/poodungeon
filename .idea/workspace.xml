@@ -1,27 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c18a4aa2-1d45-4bd9-84c8-8524fc125ad6" name="Default Changelist" comment="test alimentation liste avec constante de la classe factory&#10;+ test ajout de parametre dans le render du createCharacter">
-      <change afterPath="$PROJECT_DIR$/cour/Singleton.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cour/adapter/MicroUsbInterface.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cour/adapter/TelephoneAncien.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cour/adapter/TelephoneRecent.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cour/adapter/UsbcInterface.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cour/adapter/UsbcToMicroUsbAdaptater.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cour/builder/DatabaseProxy.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cour/builder/Form.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cour/builder/FormBuilder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cour/builder/app.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cour/factory/MoyenTransport.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cour/factory/MoyenTransportFactory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cour/factory/Tram.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/POE/database/ObjetIterable.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/POE/Dungeon.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/POE/Dungeon.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/POE/brawl/Ring.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/POE/brawl/Ring.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/POE/database/CharacterFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/POE/database/CharacterFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/template/createCharacter.html.php" beforeDir="false" afterPath="$PROJECT_DIR$/template/createCharacter.html.php" afterDir="false" />
-    </list>
+    <list default="true" id="c18a4aa2-1d45-4bd9-84c8-8524fc125ad6" name="Default Changelist" comment="test alimentation liste avec constante de la classe factory&#10;+ test ajout de parametre dans le render du createCharacter" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +14,7 @@
         <entry file="file://$PROJECT_DIR$/template/brawl.html.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="165">
-              <caret line="11" column="47" lean-forward="true" selection-start-line="11" selection-start-column="47" selection-end-line="11" selection-end-column="47" />
+              <caret line="11" column="47" selection-start-line="11" selection-start-column="47" selection-end-line="11" selection-end-column="47" />
             </state>
           </provider>
         </entry>
@@ -43,15 +23,15 @@
         <entry file="file://$PROJECT_DIR$/template/createCharacter.html.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="390">
-              <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+              <caret line="26" selection-start-line="26" selection-end-line="26" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/POE/brawl/Ring.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
+            <state relative-caret-position="330">
               <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
               <folding>
                 <element signature="e#30#57#0#PHP" expanded="true" />
@@ -69,11 +49,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/POE/database/ObjetIterable.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="24" column="5" lean-forward="true" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
+            <state relative-caret-position="113">
+              <caret line="32" column="45" lean-forward="true" selection-start-line="32" selection-start-column="45" selection-end-line="32" selection-end-column="45" />
             </state>
           </provider>
         </entry>
@@ -81,7 +61,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/POE/Dungeon.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
+            <state relative-caret-position="570">
               <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
               <folding>
                 <element signature="e#23#42#0#PHP" expanded="true" />
@@ -93,7 +73,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/POE/database/CharacterFactory.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
+            <state relative-caret-position="180">
               <caret line="17" column="31" lean-forward="true" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
               <folding>
                 <element signature="e#6#89#0#PHP" expanded="true" />
@@ -149,6 +129,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -207,7 +188,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -216,7 +196,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -253,17 +233,17 @@
       <workItem from="1544431235638" duration="8940000" />
       <workItem from="1544442042561" duration="1115000" />
       <workItem from="1544447371745" duration="8529000" />
+      <workItem from="1544516285062" duration="2202000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34141000" />
+    <option name="totallyTimeSpent" value="36343000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-2" width="1920" height="1082" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1398079" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14140876" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -276,7 +256,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.21091291" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.62959075" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -437,6 +417,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/template/brawl.html.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="47" selection-start-line="11" selection-start-column="47" selection-end-line="11" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/template/createCharacter.html.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/POE/database/Character.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -444,16 +438,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/POE/database/ObjetIterable.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="24" column="5" lean-forward="true" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/POE/Dungeon.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
+        <state relative-caret-position="570">
           <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
           <folding>
             <element signature="e#23#42#0#PHP" expanded="true" />
@@ -461,16 +448,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/template/brawl.html.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="47" lean-forward="true" selection-start-line="11" selection-start-column="47" selection-end-line="11" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/POE/database/CharacterFactory.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
+        <state relative-caret-position="180">
           <caret line="17" column="31" lean-forward="true" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
           <folding>
             <element signature="e#6#89#0#PHP" expanded="true" />
@@ -478,20 +458,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/template/createCharacter.html.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/POE/brawl/Ring.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
+        <state relative-caret-position="330">
           <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
           <folding>
             <element signature="e#30#57#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/POE/database/ObjetIterable.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="113">
+          <caret line="32" column="45" lean-forward="true" selection-start-line="32" selection-start-column="45" selection-end-line="32" selection-end-column="45" />
         </state>
       </provider>
     </entry>
