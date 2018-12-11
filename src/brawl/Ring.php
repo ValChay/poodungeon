@@ -2,9 +2,8 @@
 
 namespace POE\brawl;
 
-
-use POE\database\Character;
 use POE\database\ObjetIterable;
+use POE\entity\Character;
 
 class Ring
 {
@@ -12,6 +11,11 @@ class Ring
 
     private $defender;
 
+    /**
+     * Ring constructor.
+     * @param \POE\brawl\Character $attacker
+     * @param \POE\brawl\Character $defender
+     */
     public function __construct(Character $attacker, Character $defender)
     {
         $this->attacker = $attacker;

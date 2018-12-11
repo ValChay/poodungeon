@@ -2,11 +2,15 @@
 
 require __DIR__ . '/../vendor/autoload.php';
 
-$dungeon = new POE\Dungeon();
+
 $loger = new \Monolog\Logger('main');
 $handlers = [new \Monolog\Handler\StreamHandler(__DIR__.'/../test.log')];
 $loger->setHandlers($handlers);
 $loger->info('demarrage de lapp');
+
+require __DIR__.'/../src/bootstrap.php';
+
+$dungeon = new POE\Dungeon();
 $request_uri = $_SERVER['REQUEST_URI'];
 
 
@@ -18,27 +22,48 @@ $pages = [
     '/jeu/situation/' => 'reportSituation',
 ];
 
-/*Si lurl demander par le client n'est pas dans la liste on lui affiche un 404*/
-if (!key_exists($_SERVER['REQUEST_URI'], $pages)) {
-    http_response_code(404);
-    echo '<a href="/creation"> Créer votre personnage</a>
-          <a href="/jeu/situation"> Situation du donjon</a>
-          <a href="/jeu/baston"> Fight</a>';
-    die;
-}
-
-/* Si lurl existe bien on peut appeler la méthode correspondante comme
-le nom de la méthode est stockée dans une variable on passe par call user pour lappeler*/
-$document = call_user_func([$dungeon, $pages[$_SERVER['REQUEST_URI']]]);
-
-
-/* L'nevoi du document se fait à la fin
-il n'y a plus de traitement à faire, donc plus derreur possible
-*/
-
-echo $document;
-
 ?>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/index.css">
+    <title>Document</title>
+</head>
+<body>
+<div class="container-index">
+    <?php
+    /*Si lurl demander par le client n'est pas dans la liste on lui affiche un 404*/
+    if (!key_exists($_SERVER['REQUEST_URI'], $pages)) {
+        http_response_code(404);
+        echo '
+<h3>Bienvenue dans Dungeon</h3>
+<a href="/creation"> Créer votre personnage</a>
+<a href="/jeu/situation"> Situation du donjon</a>
+<a href="/jeu/baston"> Fight</a>';
+        die;
+    }
+
+    /* Si lurl existe bien on peut appeler la méthode correspondante comme
+    le nom de la méthode est stockée dans une variable on passe par call user pour lappeler*/
+    $document = call_user_func([$dungeon, $pages[$_SERVER['REQUEST_URI']]]);
+
+
+    /* L'nevoi du document se fait à la fin
+    il n'y a plus de traitement à faire, donc plus derreur possible
+    */
+    echo $document;
+
+    ?>
+</div>
+
+</body>
+</html>
+
+
 
 
 

@@ -2,21 +2,40 @@
 
 namespace POE;
 
+use Doctrine\Common\Persistence\ManagerRegistry;
+use Doctrine\ORM\EntityManager;
+use MongoDB\Driver\Manager;
 use POE\brawl\Ring;
 use POE\database\CharacterFactory;
 use POE\database\CharacterManager;
 use POE\database\CharacterLoader;
 
 use POE\database\Connection;
+use POE\entity\Character;
 
 class Dungeon
 {
+    /**
+     * @var EntityManager
+     */
+
+    private $manager;
+    public function __construct(EntityManager $manager)
+    {
+
+        $this->manager = $manager;
+
+    }
+
     public function brawl()
     {
-        $loader = new CharacterLoader(new Connection());
+        /**
+         * chargement des perso depuis la base
+         */
 
-        $attacker = $loader->load(1);
-        $defender = $loader->load(2);
+
+        $attacker = $this->manager->find(Character::class,1);
+        $defender = $this->manager->find(Character::class,2);
 
         $ring = new Ring($attacker, $defender);
         // toute les variables local à la méthode sont disponible dans le template

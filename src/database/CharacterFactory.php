@@ -8,6 +8,7 @@
 
 namespace POE\database;
 
+use POE\entity\Character;
 
 class CharacterFactory
 {
@@ -43,7 +44,7 @@ class CharacterFactory
     /**
      * CharacterFactory constructor.
      */
-    public function generate($name, $type)
+    public function generate($name, $type): Character
     {
 
         /*

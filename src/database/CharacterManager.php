@@ -9,6 +9,8 @@
 namespace POE\database;
 
 
+use POE\entity\Character;
+
 class CharacterManager extends Connection
 {
     public function save(Character $character)
