@@ -1,15 +1,21 @@
 <?php
 
-require __DIR__ . '/../src/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
 
 $dungeon = new POE\Dungeon();
+$loger = new \Monolog\Logger('main');
+$handlers = [new \Monolog\Handler\StreamHandler(__DIR__.'/../test.log')];
+$loger->setHandlers($handlers);
+$loger->info('demarrage de lapp');
+$request_uri = $_SERVER['REQUEST_URI'];
+
 
 /* On décide de définir dans un tableau associatif la liste des pages gérés par l'application
 la clé représente le chemin d'url et la valeur est le nom de la méthode à éxécuter*/
 $pages = [
     '/creation' => 'createCharacter',
     '/jeu/baston' => 'brawl',
-    '/jeu/situation' => 'reportSituation',
+    '/jeu/situation/' => 'reportSituation',
 ];
 
 /*Si lurl demander par le client n'est pas dans la liste on lui affiche un 404*/

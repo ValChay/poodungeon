@@ -79,7 +79,7 @@ class Dungeon
          * */
 
         ob_start();
-        include __DIR__ . '/../../template/' . $filename . '.html.php';
+        include __DIR__ . '/../template/' . $filename . '.html.php';
         /*
          * Après avoir écrit le document (capturé dans le tampon de sortie)
          * on décide de le faire redesencdre dans une vairiable PHP et on néttoie
