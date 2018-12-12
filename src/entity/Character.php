@@ -1,147 +1,152 @@
 <?php
-
 namespace POE\entity;
-
 use Doctrine\ORM\Mapping as ORM;
-
 /**
  * Class Character
- * @package POE\entity
+ *
  * @ORM\Entity()
- * @ORM\Table()
+ * @ORM\Table(name="characters")
  */
-class Character{
-
+class Character
+{
+    /*
+     * Commentaires non interprétés
+     */
     /**
-     * id en bdd
-
-    @var int
+     * l'identifiant en base de données
+     *
+     * @var int
+     *
      * @ORM\Id()
      * @ORM\Column(type="integer")
-     */
-    private $id;
-
-    /**
-     * @var string
-     * @ORM\Column(type="string")
      * @ORM\GeneratedValue()
      */
+    private $id;
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string")
+     */
     private $name;
-
-/**
-* @var int
-* @ORM\Column(type="integer", name="life_max")
-*/
-    private $lifeMax;
     /**
      * @var int
+     *
+     * @ORM\Column(type="integer", name="life_max")
+     */
+    private $maxLife;
+    /**
+     * @var int
+     *
      * @ORM\Column(type="integer", name="life_current")
      */
-
-    private $lifeCurrent;
+    private $currentLife;
     /**
      * @var int
+     *
      * @ORM\Column(type="integer", name="energy_max")
      */
-    private $energyMax;
+    private $maxEnergy;
     /**
      * @var int
-     * @ORM\Column(type="integer", name="energy_max")
+     *
+     * @ORM\Column(type="integer", name="energy_current")
      */
-    private $energyCurrent;
-
+    private $currentEnergy;
     /**
      * @var int
-     * @ORM\Column(type="integer", name="attack")
+     * @ORM\Column(type="integer")
      */
     private $attack;
     /**
      * @var int
-     * @ORM\Column(type="integer", name="defense")
+     * @ORM\Column(type="integer")
      */
     private $defense;
 
     /**
+     * @var varchar
+     * @ORM\Column(type="string")
+     */
+    private $password;
+
+
+    /**
      * @return mixed
-     *
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+    /**
+     * @return mixed
      */
     public function getName()
     {
         return $this->name;
     }
-
     /**
-     * @return mixed
+     * @param string $name
      */
-    public function getLifeMax()
-    {
-        return $this->lifeMax;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getLifeCurrent()
-    {
-        return $this->lifeCurrent;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getEnergyMax()
-    {
-        return $this->energyMax;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getEnergyCurrent()
-    {
-        return $this->energyCurrent;
-    }
-
-    /**
-     * @param mixed $name
-     */
-    public function setName($name): void
+    public function setName(string $name)
     {
         $this->name = $name;
     }
-
     /**
-     * @param mixed $lifeMax
+     * @return mixed
      */
-    public function setLifeMax($lifeMax): void
+    public function getMaxLife()
     {
-        $this->lifeMax = $lifeMax;
+        return $this->maxLife;
     }
-
     /**
-     * @param mixed $lifeCurrent
+     * @param mixed $life_max
      */
-    public function setLifeCurrent($lifeCurrent): void
+    public function setMaxLife($life_max): void
     {
-        $this->lifeCurrent = $lifeCurrent;
+        $this->maxLife = $life_max;
     }
-
     /**
-     * @param mixed $energyMax
+     * @return mixed
      */
-    public function setEnergyMax($energyMax): void
+    public function getCurrentLife()
     {
-        $this->energyMax = $energyMax;
+        return $this->currentLife;
     }
-
     /**
-     * @param mixed $energyCurrent
+     * @param mixed $life_current
      */
-    public function setEnergyCurrent($energyCurrent): void
+    public function setCurrentLife($life_current): void
     {
-        $this->energyCurrent = $energyCurrent;
+        $this->currentLife = $life_current;
     }
-
+    /**
+     * @return mixed
+     */
+    public function getMaxEnergy()
+    {
+        return $this->maxEnergy;
+    }
+    /**
+     * @param mixed $energy_max
+     */
+    public function setMaxEnergy($energy_max): void
+    {
+        $this->maxEnergy = $energy_max;
+    }
+    /**
+     * @return mixed
+     */
+    public function getCurrentEnergy()
+    {
+        return $this->currentEnergy;
+    }
+    /**
+     * @param mixed $energy_current
+     */
+    public function setCurrentEnergy($energy_current): void
+    {
+        $this->currentEnergy = $energy_current;
+    }
     /**
      * @return mixed
      */
@@ -149,7 +154,6 @@ class Character{
     {
         return $this->attack;
     }
-
     /**
      * @param mixed $attack
      */
@@ -157,7 +161,6 @@ class Character{
     {
         $this->attack = $attack;
     }
-
     /**
      * @return mixed
      */
@@ -165,7 +168,6 @@ class Character{
     {
         return $this->defense;
     }
-
     /**
      * @param mixed $defense
      */
@@ -174,14 +176,26 @@ class Character{
         $this->defense = $defense;
     }
 
-    public function wound(int $amount)
-    {
-        $this->lifeCurrent -= $amount;
-        if(0 > $this->lifeCurrent){
-            echo $this->getName().' est mort !!';
-            throw  new \Exception("aaalkkldkdkldklmdlm");
 
+    public function wound(int $amount): void
+    {
+        $this->currentLife -= $amount;
+        if (0 > $this->currentLife) {
+            throw new \Exception("Aaaaaargh");
         }
+    }
+
+    public function toArray(): array{
+
+        return [
+            'name' =>$this->name,
+            'currentLife' =>$this->currentLife,
+            'maxLife' =>$this->maxLife,
+            'currentEnergy' =>$this->currentEnergy,
+            'maxEnergy' =>$this->maxEnergy,
+            'attack' =>$this->attack,
+            'defense' =>$this->defense,
+        ];
     }
 
 

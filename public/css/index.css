@@ -2,9 +2,12 @@ body {
     background-image: url("../bg.jpeg");
     background-repeat: no-repeat;
     background-size: cover;
+
+    color: azure;
 }
 
 h3 {
 
     color: darkgray;
 }
+

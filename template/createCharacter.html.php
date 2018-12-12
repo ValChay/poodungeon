@@ -17,20 +17,23 @@
             <input type="text" name="name" id="name" value="">
         </div>
         <div>
-            <?php var_dump($lists) ;?>
+            <?php var_dump($lists); ?>
             <label for="personnage-type">Classe</label>
 
             <select name="type" id="personnage-type" required>
                 <option value="Choix" selected>Choix</option>
                 <?php foreach ($lists as $list => $listValue): ?>
-                <option value="<?php echo $listValue;?>"><?php echo $list;?></option>
+                    <option value="<?php echo $listValue; ?>"><?php echo $list; ?></option>
 
-                <!--     <option value="warrior" >warrior</option>
-                     <option value="thief" >thief</option>
-                     <option value="wizard" >wizard</option>-->
+                    <!--     <option value="warrior" >warrior</option>
+                         <option value="thief" >thief</option>
+                         <option value="wizard" >wizard</option>-->
                 <?php endforeach; ?>
             </select>
-
+            <label for="mdp">Password :</label>
+            <input type="password" id="mdp" name="password">
+            <label for="mdpc">Confirmer votre password: </label>
+            <input type="password" id="mdpc" name="confirmPassword">
         </div>
 
 

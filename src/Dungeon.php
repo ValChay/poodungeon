@@ -7,10 +7,6 @@ use Doctrine\ORM\EntityManager;
 use MongoDB\Driver\Manager;
 use POE\brawl\Ring;
 use POE\database\CharacterFactory;
-use POE\database\CharacterManager;
-use POE\database\CharacterLoader;
-
-use POE\database\Connection;
 use POE\entity\Character;
 
 class Dungeon
@@ -20,6 +16,7 @@ class Dungeon
      */
 
     private $manager;
+
     public function __construct(EntityManager $manager)
     {
 
@@ -32,10 +29,8 @@ class Dungeon
         /**
          * chargement des perso depuis la base
          */
-
-
-        $attacker = $this->manager->find(Character::class,1);
-        $defender = $this->manager->find(Character::class,2);
+        $attacker = $this->manager->find(Character::class, 1);
+        $defender = $this->manager->find(Character::class, 2);
 
         $ring = new Ring($attacker, $defender);
         // toute les variables local à la méthode sont disponible dans le template
@@ -57,12 +52,13 @@ class Dungeon
             /*On délégue à notre fabrique de personnage tout le savoir faire pour créer un nouveau personnage
             à partir d'un type et d'un nom */
             $factory = new CharacterFactory();
-            $characters = $factory->generate($_POST['name'], $_POST['type']);
+            $character = $factory->generate($_POST['name'], $_POST['type']);
             // On va aller chercher la constante pour la liste des type
             $lists = CharacterFactory::TYPES;
-
-            $manager = new CharacterManager(new Connection());
-            $manager->save($characters);
+            $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+            $character->setPassword($password);
+            $this->manager->persist($character);
+            $this->manager->flush();
         }
         return $this->render('createCharacter', ['lists' => $lists]);
     }
@@ -73,23 +69,53 @@ class Dungeon
         /*
          * On passe par un objet intermédiaire pour récupérer notre personnage
          * par anticipation avec le fait qu'il viendra de la base de données*/
-        $loader = new CharacterLoader(new Connection());
-        $character = $loader->load(1);
 
+/*        $character = $this->manager->find(Character::class, 1);*/
         /*
          * Démarrage tampon de sortie
          * Dans cette 'zone" tampon, le html généré par le fichier inclus sera stocké sans partir directement vers le serveur HTTP
          * */
 
-        return $this->render('reportSituation', ['character' => $character]);
+        return $this->render('reportSituation',[]);
 
     }
 
+    public function getCharacter()
+    {
+        header('Content-type: application/json');
+        $character = $this->manager->find(Character::class, 1);
+        return json_encode($character->toArray());
+
+    }
+
+    public function getCharacters()
+    {
+        $characters = $this->manager->getRepository(Character::class)->findAll();
+        $charactersAsArray = array_map(
+            function($elt) { return $elt->toArray();
+            },
+        $characters);
+        header('Content-type: application/json');
+       /* $character = $this->manager->find(Character::class, 1);*/
+        return json_encode($charactersAsArray);
+
+    }
+    /**
+     * La méthode qui affiche le HTML de base pour la fiche du personnage
+     * les donnée sont chargées en AJAX
+     *
+     * @return false|string
+     * @throws \Doctrine\ORM\
+     * @param string $filename
+     * @param array $data
+     * @return false|string
+     */
+
     private function render(string $filename, array $data = [])
     {
-       /* a partir du tableau associatif $data reçu en paramètre
-       on génère autant de variable qu'il ya d'element dans le tableau
-       chaque variable portera le nom de la clé*/
+        /* a partir du tableau associatif $data reçu en paramètre
+        on génère autant de variable qu'il ya d'element dans le tableau
+        chaque variable portera le nom de la clé*/
         extract($data);
         /*
          * Démarrage tampon de sortie
