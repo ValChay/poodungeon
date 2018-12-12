@@ -7,6 +7,7 @@
 </head>
 <body>
 
+
 <script>document.addEventListener('DOMContentLoaded', function () {
         const body = document.querySelector('body');
         fetch('/api/situation')
@@ -34,6 +35,7 @@
 `
 
             })
-    })</script>
+    })
+</script>
 </body>
 </html>

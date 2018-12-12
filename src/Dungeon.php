@@ -82,9 +82,15 @@ class Dungeon
 
     public function getCharacter()
     {
-        header('Content-type: application/json');
-        $character = $this->manager->find(Character::class, 1);
-        return json_encode($character->toArray());
+        if ($_SERVER['REQUEST_METHOD'] !== 'GET'){
+            return "NONONOONNONONNONONON";
+            die;
+        }else{
+            header('Content-type: application/json');
+            $character = $this->manager->find(Character::class, 1);
+            return json_encode($character->toArray());
+        }
+
 
     }
 
