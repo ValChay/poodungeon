@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="../public/css/theme.css">
+    <link rel="stylesheet" href="/theme.css">
 </head>
 <body>
 
@@ -25,12 +25,9 @@
                 ${data.currentEnergy}?>/ ${data.maxEnergy}?> PV
                 </progress>
             </div>
-
-
 <div>Combat :
         attaque: ${data.attack}
         defense: ${data.defense}
-
 </div>
 `
 

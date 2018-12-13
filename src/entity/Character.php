@@ -64,10 +64,26 @@ class Character
     private $defense;
 
     /**
-     * @var varchar
+     * @var string
      * @ORM\Column(type="string")
      */
     private $password;
+
+    /**
+     * @return string
+     */
+    public function getPassword(): string
+    {
+        return $this->password;
+    }
+
+    /**
+     * @param string $password
+     */
+    public function setPassword(string $password): void
+    {
+        $this->password = $password;
+    }
 
 
     /**
@@ -188,6 +204,7 @@ class Character
     public function toArray(): array{
 
         return [
+            'id' => $this->id,
             'name' =>$this->name,
             'currentLife' =>$this->currentLife,
             'maxLife' =>$this->maxLife,

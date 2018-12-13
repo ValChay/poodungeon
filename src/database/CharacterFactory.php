@@ -43,6 +43,7 @@ class CharacterFactory
 
     /**
      * CharacterFactory constructor.
+     * @throws \Exception
      */
     public function generate($name, $type): Character
     {
@@ -58,10 +59,10 @@ class CharacterFactory
         if (!key_exists($type, self::TYPES)) {
             throw new \Exception('Type of character' . $type . 'does not exist');
         }
-        $character->setLifeMax(self::TYPES[$type]['life']);
-        $character->setLifeCurrent(self::TYPES[$type]['life']);
-        $character->setEnergyMax(self::TYPES[$type]['energy']);
-        $character->setEnergyCurrent(self::TYPES[$type]['energy']);
+        $character->setMaxLife(self::TYPES[$type]['life']);
+        $character->setCurrentLife(self::TYPES[$type]['life']);
+        $character->setMaxEnergy(self::TYPES[$type]['energy']);
+        $character->setCurrentEnergy(self::TYPES[$type]['energy']);
         $character->setAttack(self::TYPES[$type]['attack']);
         $character->setDefense(self::TYPES[$type]['defense']);
 

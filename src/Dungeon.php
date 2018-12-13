@@ -30,7 +30,7 @@ class Dungeon
          * chargement des perso depuis la base
          */
         $attacker = $this->manager->find(Character::class, 1);
-        $defender = $this->manager->find(Character::class, 2);
+        $defender = $this->manager->find(Character::class, 3);
 
         $ring = new Ring($attacker, $defender);
         // toute les variables local à la méthode sont disponible dans le template
@@ -45,8 +45,8 @@ class Dungeon
         /* Si la méthode HTTP est"POST" alors le client essaye de transmettre les données
         du formulaire.Quand il veut juste l'affichage du formulaire il requête avec GET */
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            if (!isset($_POST['type']) || !in_array($_POST['type'], ['warrior', 'thief', 'wizard'])) {
-                // gestion de l'erreur
+            if (!isset($_POST['type']) || !in_array($_POST['type'], ['warrior', 'thief', 'wizard','goule'])) {
+                echo "erreur type : ".($_POST['type']) ;
             }
 
             /*On délégue à notre fabrique de personnage tout le savoir faire pour créer un nouveau personnage
@@ -54,12 +54,13 @@ class Dungeon
             $factory = new CharacterFactory();
             $character = $factory->generate($_POST['name'], $_POST['type']);
             // On va aller chercher la constante pour la liste des type
-            $lists = CharacterFactory::TYPES;
+
             $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
             $character->setPassword($password);
             $this->manager->persist($character);
             $this->manager->flush();
         }
+        $lists = CharacterFactory::TYPES;
         return $this->render('createCharacter', ['lists' => $lists]);
     }
 
@@ -77,6 +78,12 @@ class Dungeon
          * */
 
         return $this->render('reportSituation',[]);
+
+    }
+    public function reportList()
+    {
+
+        return $this->render('reportList',[]);
 
     }
 
